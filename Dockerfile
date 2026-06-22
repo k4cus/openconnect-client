@@ -10,7 +10,7 @@ LABEL org.opencontainers.image.title='openconnect' \
       org.opencontainers.image.created="${BUILD_DATE}" \
       org.opencontainers.image.description='AnyConnect-compatible client to route host traffic based on https://github.com/aw1cks/openconnect' \
       org.opencontainers.image.documentation='https://github.com/k4cus/openconnect-client/blob/master/README.md' \
-      org.opencontainers.image.version='1.0' \
+      org.opencontainers.image.version='2.0' \
       org.opencontainers.image.source='https://github.com/k4cus/openconnect-client' \
       org.opencontainers.image.revision="${COMMIT_SHA}"
 
