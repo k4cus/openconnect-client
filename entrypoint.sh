@@ -3,6 +3,7 @@
 # Alex Wicks, 2021
 # github.com/aw1cks
 #
+set -e
 
 get_resolv_nameservers() {
   grep '^nameserver' /etc/resolv.conf | awk '{print $2}'
@@ -65,14 +66,9 @@ printf "\e[33mArguments:\e[0m %s\n\n" "${OPENCONNECT_ARGS}"
 # shellcheck disable=SC2086
 #(echo "${PASS}"; sleep 5; [ -n "${OTP}" ] && echo "${OTP}") | openconnect ${OPENCONNECT_ARGS}
 
-{
-  printf "%s\n" "${PASS}"
-  if [ -n "${OTP}" ]; then
-    sleep 1
-    printf "%s\n" "${OTP}"
-  fi
-} | openconnect ${OPENCONNECT_ARGS}
-
+openconnect ${OPENCONNECT_ARGS} <<EOF
+$PASS
+EOF
 
 # Add our initial dnsmasq config
 printf '# Static options
