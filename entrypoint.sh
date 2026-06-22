@@ -40,8 +40,8 @@ printf "\e[33mPassword:\e[0m [REDACTED]\n\n"
 
 printf "\e[32mSetting mandatory arguments...\e[0m\n"
 # Set user
-#OPENCONNECT_ARGS="--background --user=${USER} -i tun127 --passwd-on-stdin --non-inter"
-OPENCONNECT_ARGS="--user=${USER} -i tun127 --passwd-on-stdin"
+OPENCONNECT_ARGS="--background --user=${USER} -i tun127 --passwd-on-stdin --non-inter"
+#OPENCONNECT_ARGS="--user=${USER} -i tun127 --passwd-on-stdin"
 
 # Test for auth group
 printf "\e[32mChecking for authentication group parameter...\e[0m\n"
@@ -64,11 +64,11 @@ OPENCONNECT_ARGS="${OPENCONNECT_ARGS} ${URL}"
 printf "\e[32mStarting OpenConnect VPN...\e[0m\n"
 printf "\e[33mArguments:\e[0m %s\n\n" "${OPENCONNECT_ARGS}"
 # shellcheck disable=SC2086
-#(echo "${PASS}"; sleep 5; [ -n "${OTP}" ] && echo "${OTP}") | openconnect ${OPENCONNECT_ARGS}
+(echo "${PASS}"; sleep 5; [ -n "${OTP}" ] && echo "${OTP}") | openconnect ${OPENCONNECT_ARGS}
 
-openconnect ${OPENCONNECT_ARGS} <<EOF
-$PASS
-EOF
+#openconnect ${OPENCONNECT_ARGS} <<EOF
+#$PASS
+#EOF
 
 # Add our initial dnsmasq config
 printf '# Static options
