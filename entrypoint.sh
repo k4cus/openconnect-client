@@ -40,7 +40,7 @@ printf "\e[33mPassword:\e[0m [REDACTED]\n\n"
 printf "\e[32mSetting mandatory arguments...\e[0m\n"
 # Set user
 #OPENCONNECT_ARGS="--background --user=${USER} -i tun127 --passwd-on-stdin --non-inter"
-OPENCONNECT_ARGS="--background --user=${USER} -i tun127 --non-inter"
+OPENCONNECT_ARGS="--user=${USER} -i tun127 --non-inter"
 
 # Test for auth group
 printf "\e[32mChecking for authentication group parameter...\e[0m\n"
