@@ -63,7 +63,16 @@ OPENCONNECT_ARGS="${OPENCONNECT_ARGS} ${URL}"
 printf "\e[32mStarting OpenConnect VPN...\e[0m\n"
 printf "\e[33mArguments:\e[0m %s\n\n" "${OPENCONNECT_ARGS}"
 # shellcheck disable=SC2086
-(echo "${PASS}"; sleep 5; [ -n "${OTP}" ] && echo "${OTP}") | openconnect ${OPENCONNECT_ARGS}
+#(echo "${PASS}"; [ -n "${OTP}" ] && echo "${OTP}") | openconnect ${OPENCONNECT_ARGS}
+
+mkfifo /tmp/vpnpipe
+
+{
+  printf "%s\n" "$PASS"
+  [ -n "$OTP" ] && printf "%s\n" "$OTP"
+} > /tmp/vpnpipe &
+
+openconnect ${OPENCONNECT_ARGS} < /tmp/vpnpipe
 
 # Add our initial dnsmasq config
 printf '# Static options
