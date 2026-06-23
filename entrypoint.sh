@@ -2,8 +2,7 @@
 #
 # Alex Wicks, 2021
 # github.com/aw1cks
-#
-set -e
+# updated 2026 https://github.com/k4cus
 
 get_resolv_nameservers() {
   grep '^nameserver' /etc/resolv.conf | awk '{print $2}'
