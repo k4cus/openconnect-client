@@ -1,7 +1,6 @@
 # OpenConnect Docker Container
 
 ![github](https://github.com/k4cus/openconnect-client/actions/workflows/main.yml/badge.svg)
-![gitlab](https://github.com/k4cus/openconnect-client/badges/master/pipeline.svg)
 
 ## Why?
 
