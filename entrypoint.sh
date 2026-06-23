@@ -65,7 +65,7 @@ printf "\e[32mStarting OpenConnect VPN...\e[0m\n"
 printf "\e[33mArguments:\e[0m %s\n\n" "${OPENCONNECT_ARGS}"
 # shellcheck disable=SC2086
 #(echo "${PASS}"; sleep 5; [ -n "${OTP}" ] && echo "${OTP}") | openconnect ${OPENCONNECT_ARGS}
-{ printf '${PASS}\n'; sleep 5; } | openconnect ${OPENCONNECT_ARGS}
+{ printf "${PASS}\n"; sleep 1; } | openconnect ${OPENCONNECT_ARGS}
 
 #openconnect ${OPENCONNECT_ARGS} <<EOF
 #$PASS
