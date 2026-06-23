@@ -14,7 +14,7 @@ LABEL org.opencontainers.image.title='openconnect' \
       org.opencontainers.image.source='https://github.com/k4cus/openconnect-client' \
       org.opencontainers.image.revision="${COMMIT_SHA}"
 
-RUN apk add --no-cache openconnect dnsmasq
+RUN apk add --no-cache openconnect dnsmasq iptables
 
 WORKDIR /vpn
 COPY ./entrypoint.sh .
